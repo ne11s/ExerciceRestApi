@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface TodoRepository extends JpaRepository<Todo,Long> {
     @Query("SELECT t FROM Todo t WHERE t.isValidate = ?1")
-    List<TodoResponseDto> findAllByStatus(Boolean isValide);
+    List<Todo> findAllByStatus(Boolean isValide);
 }

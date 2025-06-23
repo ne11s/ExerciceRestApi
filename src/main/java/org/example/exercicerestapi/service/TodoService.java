@@ -48,7 +48,7 @@ public class TodoService {
     }
     // tentative de recuperation de list part validation de todoo
     public List<TodoResponseDto> getByStatus(Boolean isValide) {
-        return todoRepository.findAllByStatus(isValide);
+        return todoRepository.findAllByStatus(isValide).stream().map(Todo::entityToDto).toList();
         //return todoRepository.findAll().stream().filter(todo -> todo.isValidate() == status).map(Todo::entityToDto).toList();
     }
 }
